@@ -1,8 +1,14 @@
 import React from "react";
 
-const Personal = ({ personalInfo, setPersonalInfo, errors }) => {
+const Personal = ({ personalInfo, setPersonalInfo, errors, setErrors }) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    const updatedErrors = { ...errors };
+    if (updatedErrors[name]) {
+      updatedErrors[name] = "";
+      setErrors(updatedErrors);
+    }
+
     setPersonalInfo((prevInfo) => ({
       ...prevInfo,
       [name]: value,

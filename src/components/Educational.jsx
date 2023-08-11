@@ -1,14 +1,20 @@
 import React from "react";
 import { AiOutlinePlusSquare, AiTwotoneDelete } from "react-icons/ai";
 
-const Educational = ({ educationalForms, setEducationalForms, errors }) => {
+const Educational = ({ educationalForms, setEducationalForms, errors, setErrors }) => {
   const handleInputChange = (event, index) => {
     const { name, value } = event.target;
     const updatedForms = [...educationalForms];
     updatedForms[index][name] = value;
+    const updatedErrors = [...errors];
+    if (updatedErrors[index] && updatedErrors[index][name]) {
+      updatedErrors[index][name] = "";
+      setErrors(updatedErrors);
+    }
+
     setEducationalForms(updatedForms);
   };
-
+  
   const addForm = () => {
     setEducationalForms((prevForms) => [
       ...prevForms,
