@@ -20,7 +20,7 @@ const App = () => {
     },
   ]);
   const [personalErrors, setPersonalErrors] = useState({});
-  const [educationalErrors, setEducationalErrors] = useState({});
+  const [educationalErrors, setEducationalErrors] = useState([]);
 
   const handleSubmit = () => {
     const personalErrors = {};
@@ -42,7 +42,7 @@ const App = () => {
 
     // Educational Forms Validation
     const updatedEducationalErrors = educationalForms.map((form, index) => {
-      const errors = {};
+      const errors = [];
 
       if (form.educationalLevel.trim() === "") {
         errors.educationalLevel = "Educational Level is required.";
