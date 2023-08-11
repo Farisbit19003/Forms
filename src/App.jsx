@@ -72,7 +72,6 @@ const App = () => {
           "Total Marks must be greater than or equal to Marks Obtained.";
       }
 
-      console.log("From App.js", errors);
       return errors;
     });
 
