@@ -42,7 +42,7 @@ const App = () => {
 
     // Educational Forms Validation
     const updatedEducationalErrors = educationalForms.map((form, index) => {
-      const errors = [];
+      const errors = {};
 
       if (form.educationalLevel.trim() === "") {
         errors.educationalLevel = "Educational Level is required.";
@@ -72,7 +72,7 @@ const App = () => {
           "Total Marks must be greater than or equal to Marks Obtained.";
       }
 
-      console.log(errors);
+      console.log("From App.js", errors);
       return errors;
     });
 
